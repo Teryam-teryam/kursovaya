@@ -1,0 +1,82 @@
+2024-12-15 22:27:27 Socket creation error: CRITICAL ERROR
+2024-12-15 22:50:49 Authorization error: NO CRITICAL ERROR
+2024-12-15 22:54:00 Authorization error: NO CRITICAL ERROR140625133561536
+2024-12-15 22:57:18 NO CRITICAL ERROR Authorization error in thread: 140269974578880
+2024-12-16 23:27:09 NO CRITICAL ERROR Authorization error in thread count: 1
+2024-12-16 23:30:45 NO CRITICAL ERROR Authorization error in thread count: 1
+2024-12-16 23:31:06 NO CRITICAL ERROR Authorization error in thread count: 3
+2024-12-16 23:33:51 Socket binding error: CRITICAL ERROR
+2024-12-16 23:34:15 Socket binding error: CRITICAL ERROR
+2024-12-16 23:39:58 NO CRITICAL ERROR Authorization error in thread count: 1
+2024-12-16 23:43:58 NO CRITICAL ERROR Authorization error in thread count: 1
+2024-12-17 00:06:49 NO CRITICAL ERROR Unknown ID in thread count: 1
+2024-12-17 00:08:34 NO CRITICAL ERROR Unknown ID in thread count: 1
+2024-12-17 00:09:36 NO CRITICAL ERROR Authorization error in thread count: 1
+2024-12-17 00:09:42 NO CRITICAL ERROR Authorization error in thread count: 2
+2024-12-17 22:13:15 Good_WriteLog
+2024-12-17 22:17:07 Good_WriteLog
+2024-12-17 22:19:24 Error: Invalid path to the database: jfjfjfjfjfjfj Critical error
+2024-12-17 22:24:08 Good_WriteLog
+2024-12-17 23:07:59 Good_WriteLog
+2024-12-17 23:08:21 Good_WriteLog
+2024-12-17 23:10:30 Good_WriteLog
+2024-12-17 23:24:09 Good_WriteLog
+2024-12-17 23:26:54 Good_WriteLog
+2024-12-17 23:28:30 Good_WriteLog
+2024-12-17 23:33:30 Good_WriteLog
+2024-12-17 23:35:25 Good_WriteLog
+2024-12-17 23:36:16 Good_WriteLog
+2024-12-17 23:48:10 Good_WriteLog
+2024-12-17 23:53:41 Good_WriteLog
+2024-12-18 00:23:57 Good_WriteLog
+2024-12-18 00:27:56 Good_WriteLog
+2024-12-18 00:34:26 Good_WriteLog
+2024-12-18 00:34:52 Good_WriteLog
+2024-12-18 00:36:28 Good_WriteLog
+2024-12-18 00:38:42 Good_WriteLog
+2024-12-18 00:39:44 Good_WriteLog
+2024-12-18 00:42:13 Good_WriteLog
+2024-12-18 11:56:09 Good_WriteLog
+2024-12-18 11:58:11 Good_WriteLog
+2024-12-18 11:58:49 Good_WriteLog
+2024-12-18 12:06:21 Good_WriteLog
+2024-12-18 12:10:07 Good_WriteLog
+2024-12-18 12:16:38 Good_WriteLog
+2024-12-18 12:39:53 Error: Invalid path to the database: llllllllllll Critical error
+2024-12-18 12:58:37 Good_WriteLog
+2024-12-18 13:28:08 Error connecting to the database: Invalid [login:password] format: CRITICAL ERROR
+2024-12-18 13:28:42 NO CRITICAL ERROR Unknown ID in thread count: 1
+2024-12-18 13:30:00 Error connecting to the database: Invalid [login:password] format: CRITICAL ERROR
+2024-12-18 14:02:54 Error: Invalid port: 10 Critical error
+2024-12-18 14:16:08 Good_WriteLog
+2024-12-18 14:16:08 Invalid port: 10 Critical error
+2024-12-18 14:16:08 Invalid port: 999999 Critical error
+2024-12-18 17:21:34 Good_WriteLog
+2024-12-18 17:21:34 Invalid port: 10 Critical error
+2024-12-18 17:21:34 Invalid port: 999999 Critical error
+2024-12-18 17:35:16 Good_WriteLog
+2024-12-18 17:35:16 Invalid port: 10 Critical error
+2024-12-18 17:35:16 Invalid port: 999999 Critical error
+2024-12-18 17:44:05 Good_WriteLog
+2024-12-18 17:44:05 Invalid port: 10 Critical error
+2024-12-18 17:44:05 Invalid port: 999999 Critical error
+2024-12-18 17:49:10 Error: Invalid port: 10 Critical error
+2024-12-18 17:49:16 Error: Invalid port: 99999999 Critical error
+2024-12-18 17:53:41 Good_WriteLog
+2024-12-18 17:56:23 Good_WriteLog
+2024-12-18 18:05:02 Good_WriteLog
+2024-12-18 18:05:57 Good_WriteLog
+2024-12-18 18:07:04 Good_WriteLog
+2024-12-18 18:10:43 Good_WriteLog
+2024-12-18 18:23:59 Good_WriteLog
+2024-12-18 18:26:46 Good_WriteLog
+2024-12-18 18:28:06 Good_WriteLog
+2024-12-18 18:30:18 Good_WriteLog
+2024-12-18 18:48:51 Good_WriteLog
+2024-12-18 19:36:53 Good_WriteLog
+2024-12-18 19:50:21 Good_WriteLog
+2024-12-18 19:54:45 Good_WriteLog
+2024-12-18 19:55:11 Good_WriteLog
+2024-12-18 20:18:25 Good_WriteLog
+2024-12-18 20:21:16 Good_WriteLog
+2024-12-18 20:21:39 Good_WriteLog
