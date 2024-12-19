@@ -1,0 +1,37 @@
+\hypertarget{interface_8h_source}{}\doxysection{interface.\+h}
+\mbox{\hyperlink{interface_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <boost/program\_options.hpp>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{logger_8h}{logger.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{base_8h}{base.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{communicator_8h}{communicator.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{keyword}{namespace }po = boost::program\_options;}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{23 \textcolor{keyword}{class }\mbox{\hyperlink{classInterface}{Interface}} \{}
+\DoxyCodeLine{24 \textcolor{keyword}{private}:}
+\DoxyCodeLine{25     \textcolor{keywordtype}{int} serverPort; }
+\DoxyCodeLine{26     std::string databaseFile; }
+\DoxyCodeLine{27     std::string logFile; }
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \textcolor{keyword}{public}:}
+\DoxyCodeLine{35     \mbox{\hyperlink{classInterface_a4406d74c75bdfe150bf72be1f1cda8b1}{Interface}}() : serverPort(33333), databaseFile(\textcolor{stringliteral}{"{}base.txt"{}}), logFile(\textcolor{stringliteral}{"{}log.txt"{}}) \{\}}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{bool} \mbox{\hyperlink{classInterface_a851b496e55acc8d834ab39883c822b7e}{parseArguments}}(\textcolor{keywordtype}{int} argc, \textcolor{keyword}{const} \textcolor{keywordtype}{char}** argv);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{56     \textcolor{keywordtype}{void} \mbox{\hyperlink{classInterface_a0f17333e4aa24d4cc42bee2896661233}{setupConnection}}(\textcolor{keyword}{const} std::string\& databaseFile, \textcolor{keyword}{const} std::string\& logFile);}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{63     \textcolor{keywordtype}{void} \mbox{\hyperlink{classInterface_a849333b90543c98966720b227503b564}{displayHelp}}(\textcolor{keyword}{const} boost::program\_options::options\_description\& options);}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{70     \textcolor{keywordtype}{int} \mbox{\hyperlink{classInterface_a20eceb5e028cc8eafdde6a881a7e71db}{getServerPort}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} serverPort; \}}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{77     std::string \mbox{\hyperlink{classInterface_adccc837f38d2cd3103d563f17b049823}{getDatabaseFile}}() \{ \textcolor{keywordflow}{return} databaseFile; \}}
+\DoxyCodeLine{78 }
+\DoxyCodeLine{84     std::string \mbox{\hyperlink{classInterface_a41cc6d1c4fed3be9230a2758f0a29e53}{getLogFile}}() \{ \textcolor{keywordflow}{return} logFile; \}}
+\DoxyCodeLine{85 \};}
+
+\end{DoxyCode}

@@ -1,0 +1,26 @@
+\hypertarget{logger_8h_source}{}\doxysection{logger.\+h}
+\mbox{\hyperlink{logger_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 }
+\DoxyCodeLine{15 \textcolor{keyword}{class }\mbox{\hyperlink{classLogger}{Logger}}}
+\DoxyCodeLine{16 \{}
+\DoxyCodeLine{17 \textcolor{keyword}{private}:}
+\DoxyCodeLine{18     std::string pathToLogFile; }
+\DoxyCodeLine{19 }
+\DoxyCodeLine{25     std::string getTime();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27 \textcolor{keyword}{public}:}
+\DoxyCodeLine{33     \mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}}();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{40     \mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}}(\textcolor{keyword}{const} std::string\& path); }
+\DoxyCodeLine{41 }
+\DoxyCodeLine{49     \textcolor{keywordtype}{int} \mbox{\hyperlink{classLogger_a841b0ee5b978d4b6c0635b6f642cea14}{setPath}}(\textcolor{keyword}{const} std::string\& pathFile);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{58     \textcolor{keywordtype}{int} \mbox{\hyperlink{classLogger_a8fa36135adbee4c616de8ec4e0876be0}{writeLog}}(\textcolor{keyword}{const} std::string\& message);}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{65     std::string \mbox{\hyperlink{classLogger_a91954138213183e23e391e82b8e87acb}{getPath}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} pathToLogFile; \}}
+\DoxyCodeLine{66 \};}
+
+\end{DoxyCode}

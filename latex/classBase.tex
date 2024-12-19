@@ -1,0 +1,65 @@
+\hypertarget{classBase}{}\doxysection{Класс Base}
+\label{classBase}\index{Base@{Base}}
+
+
+Класс для работы с базой данных  
+
+
+
+
+{\ttfamily \#include $<$base.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBase_a1164b3e588cb631a18e9ffcd624f6a24}{connect}} (std\+::string file\+Path)
+\begin{DoxyCompactList}\small\item\em Установка соединения с базой данных \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{classBase_ab48fcdc6e4cb1414b3f58cb045998fb9}{get\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Получить базу данных \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для работы с базой данных 
+
+Контейнер data\+Base хранит в себе логины и пароли пользователей. Для получения данных используется метод \mbox{\hyperlink{classBase_ab48fcdc6e4cb1414b3f58cb045998fb9}{get\+Data()}}. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classBase_a1164b3e588cb631a18e9ffcd624f6a24}\label{classBase_a1164b3e588cb631a18e9ffcd624f6a24}} 
+\index{Base@{Base}!connect@{connect}}
+\index{connect@{connect}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily void Base\+::connect (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Path }\end{DoxyParamCaption})}
+
+
+
+Установка соединения с базой данных 
+
+Читает данные из указанного файла и заполняет контейнер data\+Base. 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em file\+Path} & Путь к файлу базы данных. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classCritError}{Crit\+Error}}} & Если файл не открывается или имеет неверный формат. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classBase_ab48fcdc6e4cb1414b3f58cb045998fb9}\label{classBase_ab48fcdc6e4cb1414b3f58cb045998fb9}} 
+\index{Base@{Base}!getData@{getData}}
+\index{getData@{getData}!Base@{Base}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily std\+::map$<$ std\+::string, std\+::string $>$ Base\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получить базу данных 
+
+\begin{DoxyReturn}{Возвращает}
+std\+::map$<$std\+::string, std\+::string$>$ Контейнер с логинами и паролями пользователей. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{base_8h}{base.\+h}}\item 
+base.\+cpp\end{DoxyCompactItemize}

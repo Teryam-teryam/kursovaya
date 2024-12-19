@@ -18,27 +18,26 @@
 #include <boost/random/uniform_int_distribution.hpp>
 #include <memory>
 #include <fstream>
+#include <limits>
 
 #define BUFFER_SIZE 1024
 
-std::string Communicator::generateSalt()
-{
+std::string Communicator::generateSalt() {
     boost::mt19937 generator(static_cast<unsigned int>(time(0)));
     boost::random::uniform_int_distribution<uint64_t> distribution(0, std::numeric_limits<uint64_t>::max());
-    
+
     std::stringstream saltStream;
     saltStream << std::hex << distribution(generator);
     std::string saltResult(saltStream.str());
-    
-    while (saltResult.length() < 16)
-    {
+
+    // Дополняем соль до 16 символов
+    while (saltResult.length() < 16) {
         saltResult = '0' + saltResult;
     }
     return saltResult;
 }
 
-std::string Communicator::MD5(const std::string& inputString)
-{
+std::string Communicator::MD5(const std::string& inputString) {
     using namespace CryptoPP;
     Weak::MD5 hash;
     std::string newHash;
@@ -46,11 +45,8 @@ std::string Communicator::MD5(const std::string& inputString)
     return newHash;
 }
 
-int Communicator::connection(int port, const std::map<std::string, std::string>& database, Logger* logger)
-{
-    try
-    {
-        int count = 0;
+int Communicator::connection(int port, const std::map<std::string, std::string>& database, Logger* logger) {
+    try {
         const int queueLength = 100;
         sockaddr_in address{};
         address.sin_family = AF_INET;
@@ -58,164 +54,163 @@ int Communicator::connection(int port, const std::map<std::string, std::string>&
         inet_aton("127.0.0.1", &address.sin_addr);
 
         int socketDescriptor = socket(AF_INET, SOCK_STREAM, 0);
-        if (socketDescriptor <= 0)
-        {
+        if (socketDescriptor <= 0) {
             throw CritError("Socket creation error: CRITICAL ERROR");
         }
-        std::cout << "Socket has been created" << std::endl;
-        
-        if (bind(socketDescriptor, (const sockaddr*)&address, sizeof(sockaddr_in)) == -1)
-        {
+
+        if (bind(socketDescriptor, (const sockaddr*)&address, sizeof(sockaddr_in)) == -1) {
             throw CritError("Socket binding error: CRITICAL ERROR");
         }
-        std::cout << "Socket has been binded" << std::endl;
-        
-        if (listen(socketDescriptor, queueLength) == -1)
-        {
+
+        if (listen(socketDescriptor, queueLength) == -1) {
             throw CritError("Socket listening error: CRITICAL ERROR");
         }
-        std::cout << "Socket is listening" << std::endl;
-        std::cout << "Server started: " << inet_ntoa(address.sin_addr) << ":" << port << std::endl;
 
-        while (true)
-        {
+        std::cout << "Server started on: " << inet_ntoa(address.sin_addr) << ":" << port << std::endl;
+
+        while (true) {
             sockaddr_in clientAddress{};
             socklen_t length = sizeof(sockaddr_in);
             int workingSocket = accept(socketDescriptor, (sockaddr*)(&clientAddress), &length);
-            
-            if (workingSocket <= 0)
-            {
+
+            if (workingSocket <= 0) {
                 logger->writeLog("Socket didn't accept: NO CRITICAL ERROR");
                 continue; // Продолжаем, если не удалось принять соединение
             }
 
             // Создаем новый поток для обработки клиента
-            std::thread clientThread([this, workingSocket, &database, logger, &count]()
-            {
-                count++;
-                std::cout << "Thread " << count << " started work" << std::endl;
+            std::thread clientThread([this, workingSocket, &database, logger]() {
+                std::thread::id threadId = std::this_thread::get_id();
+                std::ostringstream oss;
+                oss << threadId;
 
-                try
-                {
+                std::cout << "Thread " << oss.str() << " started work" << std::endl;
+
+                std::string currentStage;
+
+                try {
                     std::unique_ptr<char[]> buffer(new char[BUFFER_SIZE]);
 
-                    // 1. Получение идентификатора клиента
+                    // Этап 1: Получение идентификатора клиента
+                    currentStage = "ID retrieval";
                     int receivedCount = recv(workingSocket, buffer.get(), BUFFER_SIZE, 0);
-                    if (receivedCount <= 0)
-                    {
-                        throw NoCritError("NO CRITICAL ERROR ID retrieval error in thread count: " + std::to_string(count));
+                    if (receivedCount <= 0) {
+                        close(workingSocket);
+                        throw NoCritError("ID retrieval error in thread: " + oss.str());
                     }
                     buffer[receivedCount] = 0;
                     std::string clientId(buffer.get(), receivedCount);
 
-                    // 2. Проверка, существует ли клиент в базе данных
-                    if (database.find(clientId) == database.end())
-                    {
-                    		send(workingSocket, "ERR", 3, 0);
-                        throw NoCritError("NO CRITICAL ERROR Unknown ID in thread count: " + std::to_string(count));
+                    // Этап 2: Проверка существования клиента в базе данных
+                    currentStage = "Client ID check";
+                    if (database.find(clientId) == database.end()) {
+                        close(workingSocket);
+                        send(workingSocket, "ERR", 3, 0);
+                        throw NoCritError("Unknown ID in thread: " + oss.str());
                     }
 
-                    // 3. Генерация соли и отправка её клиенту
+                    // Этап 3: Генерация соли и отправка её клиенту
+                    currentStage = "Salt generation and sending";
                     std::string salt = generateSalt();
                     receivedCount = send(workingSocket, salt.c_str(), salt.size(), 0);
-                    if (receivedCount <= 0)
-                    {
-                    
-                        throw NoCritError("NO CRITICAL ERROR Salt sending error in thread count: " + std::to_string(count));
+                    if (receivedCount <= 0) {
+                        close(workingSocket);
+                        throw NoCritError("Salt sending error in thread: " + oss.str());
                     }
 
-                    // 4. Получение хеша пароля от клиента
+                    // Этап 4: Получение хеша пароля от клиента
+                    currentStage = "Hash retrieval";
                     receivedCount = recv(workingSocket, buffer.get(), 56, 0);
-                    if (receivedCount <= 0)
-                    {
-                        throw NoCritError("NO CRITICAL ERROR Hash retrieval error in thread count: " + std::to_string(count));
+                    if (receivedCount <= 0) {
+                        close(workingSocket);
+                        throw NoCritError("Hash retrieval error in thread: " + oss.str());
                     }
                     buffer[receivedCount] = 0;
                     std::string clientHash(buffer.get(), receivedCount);
 
-                    // 5. Проверка хеша на соответствие
-                    if (MD5(salt + database.at(clientId)) != clientHash)
-                    {
-                    		send(workingSocket, "ERR", 3, 0);
-                        throw NoCritError("NO CRITICAL ERROR Authorization error in thread count: " + std::to_string(count));
+                    // Этап 5: Проверка хеша на соответствие
+                    currentStage = "Hash verification";
+                    if (MD5(salt + database.at(clientId)) != clientHash) {
+                        close(workingSocket);
+                        send(workingSocket, "ERR", 3, 0);
+                        throw NoCritError("Authorization error in thread: " + oss.str());
                     }
 
-                    // 6. Отправка подтверждения клиенту
+                    // Этап 6: Отправка подтверждения клиенту
+                    currentStage = "Sending confirmation";
                     receivedCount = send(workingSocket, "OK", 2, 0);
-                    if (receivedCount <= 0)
-                    {
-                        throw NoCritError("NO CRITICAL ERROR OK sending error in thread count: " + std::to_string(count));
+                    if (receivedCount <= 0) {
+                        close(workingSocket);
+                        throw NoCritError("OK sending error in thread: " + oss.str());
                     }
 
-                    // 7. Получение количества векторов от клиента
+                    // Этап 7: Получение количества векторов от клиента
+                    currentStage = "Vector count retrieval";
                     int vectorCount;
                     receivedCount = recv(workingSocket, &vectorCount, sizeof(vectorCount), 0);
-                    if (receivedCount <= 0)
-                    {
-                        throw NoCritError("NO CRITICAL ERROR Vector count not received in thread count: " + std::to_string(count));
+                    if (receivedCount <= 0) {
+                        close(workingSocket);
+                        throw NoCritError("Vector count not received in thread: " + oss.str());
                     }
 
-                    // 8. Обработка каждого вектора
-                    for (int i = 0; i < vectorCount; i++)
-                    {
+                    // Этап 8: Обработка каждого вектора
+                    for (int i = 0; i < vectorCount; i++) {
                         unsigned int vectorLength;
+                        currentStage = "Vector length retrieval";
                         receivedCount = recv(workingSocket, &vectorLength, sizeof(vectorLength), 0);
-                        if (receivedCount <= 0)
-                        {
-                            throw NoCritError("Vector length not received: NO CRITICAL ERROR in thread count: " + std::to_string(count));
+                        if (receivedCount <= 0) {
+                            close(workingSocket);
+                            throw NoCritError("Vector length not received in thread: " + oss.str());
                         }
 
                         std::unique_ptr<double[]> vectorData(new double[vectorLength]);
+                        currentStage = "Vector data retrieval";
                         receivedCount = recv(workingSocket, vectorData.get(), vectorLength * sizeof(double), 0);
-                        if (receivedCount <= 0)
-                        {
-                            throw NoCritError("Vector not received: NO CRITICAL ERROR in thread count: " + std::to_string(count));
+                        if (receivedCount <= 0) {
+                            close(workingSocket);
+                            throw NoCritError("Vector not received in thread: " + oss.str());
                         }
-                        if (receivedCount / sizeof(double) != vectorLength)
-                        {
-                            throw NoCritError("Received data has incorrect size: NO CRITICAL ERROR in thread count: " + std::to_string(count));
+                        if (receivedCount / sizeof(double) != vectorLength) {
+                            close(workingSocket);
+                            throw NoCritError("Received data has incorrect size in thread: " + oss.str());
                         }
 
-                        // 9. Выполнение вычислений
+                        // Этап 9: Выполнение вычислений
+                        currentStage = "Calculating result";
                         std::vector<double> vector(vectorData.get(), vectorData.get() + vectorLength);
                         Calc calculator(vector);
                         auto result = calculator.getResult();
 
-                        // 10. Отправка результата обратно клиенту
+                        // Этап 10: Отправка результата обратно клиенту
+                        currentStage = "Sending result";
                         receivedCount = send(workingSocket, &result, sizeof(result), 0);
-                        if (receivedCount <= 0)
-                        {
-                            throw NoCritError("Result not sent: NO CRITICAL ERROR in thread count: " + std::to_string(count));
+                        if (receivedCount <= 0) {
+                            close(workingSocket);
+                            throw NoCritError("Result not sent in thread: " + oss.str());
                         }
                     }
 
                     close(workingSocket);
-                    std::cout << "Thread " << count << " finished work" << std::endl;
+                    std::cout << "Thread " << oss.str() << " finished work" << std::endl;
                 }
-                catch (const NoCritError& e)
-                {
-                    std::cerr << "Error in thread number: " << count << std::endl; // Выводим номер потока в консоль
-                    logger->writeLog(e.what());
+                catch (const NoCritError& e) {
+                    std::cerr << "Error in thread ID: " << oss.str() << " at stage: " << currentStage << std::endl;
+                    logger->writeLog(e.what() + std::string(" at stage: ") + currentStage);
                 }
-                catch (...)
-                {
-                    std::cerr << "Error in thread number: " << count << std::endl; // Выводим номер потока в консоль
-                    logger->writeLog("An unknown error occurred in the client thread.");
+                catch (...) {
+                    std::cerr << "Error in thread ID: " << oss.str() << " at stage: " << currentStage << std::endl;
+                    logger->writeLog("An unknown error occurred in the client thread at stage: " + currentStage);
                 }
-                // Уменьшаем счетчик потоков после завершения работы потока
-                count--;
             });
 
             clientThread.detach(); // Отсоединяем поток, чтобы он мог работать независимо
         }
     }
-    catch (const CritError& e)
-    {
+    catch (const CritError& e) {
         logger->writeLog(e.what());
         return 1;
     }
-    catch (...)
-    {
+    catch (...) {
         logger->writeLog("An unknown error occurred during server setup.");
         return 1;
     }

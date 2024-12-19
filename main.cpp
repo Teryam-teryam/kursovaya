@@ -10,6 +10,9 @@
 
 int main(int argc, const char** argv) {
     Interface appInterface;
+    if (!appInterface.parseArguments(argc, argv)) {
+        return 1;
+    }
     std::string databaseFile = appInterface.getDatabaseFile();
     std::string logFile = appInterface.getLogFile();
     appInterface.setupConnection(databaseFile, logFile);

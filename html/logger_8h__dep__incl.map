@@ -1,0 +1,5 @@
+<map id="logger.h" name="logger.h">
+<area shape="rect" id="node1" title="Заголовочный файл для модуля логирования" alt="" coords="82,5,157,32"/>
+<area shape="rect" id="node2" href="$communicator_8h.html" title="Заголовочный файл для коммуникатора сервера" alt="" coords="5,80,132,107"/>
+<area shape="rect" id="node3" href="$interface_8h.html" title="Заголовочный файл для интерфейса" alt="" coords="73,155,165,181"/>
+</map>

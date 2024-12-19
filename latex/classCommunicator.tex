@@ -1,0 +1,87 @@
+\hypertarget{classCommunicator}{}\doxysection{Класс Communicator}
+\label{classCommunicator}\index{Communicator@{Communicator}}
+
+
+Класс коммуникатора  
+
+
+
+
+{\ttfamily \#include $<$communicator.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classCommunicator_a94b5c463fcce469431b09319547720e5}{connection}} (int port, const std\+::map$<$ std\+::string, std\+::string $>$ \&database, \mbox{\hyperlink{classLogger}{Logger}} $\ast$logger)
+\begin{DoxyCompactList}\small\item\em Установка соединения с клиентами \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCommunicator_a220795798dfaabc657640aff10c2af2a}{MD5}} (const std\+::string \&input\+String)
+\begin{DoxyCompactList}\small\item\em Вычисление MD5 хеша \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCommunicator_a548365290310dc23b7cfb6b3f335942c}{generate\+Salt}} ()
+\begin{DoxyCompactList}\small\item\em Генерация соли \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс коммуникатора 
+
+Устанавливает соединение с сервером, производит авторизацию клиента. 
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classCommunicator_a94b5c463fcce469431b09319547720e5}\label{classCommunicator_a94b5c463fcce469431b09319547720e5}} 
+\index{Communicator@{Communicator}!connection@{connection}}
+\index{connection@{connection}!Communicator@{Communicator}}
+\doxysubsubsection{\texorpdfstring{connection()}{connection()}}
+{\footnotesize\ttfamily int Communicator\+::connection (\begin{DoxyParamCaption}\item[{int}]{port,  }\item[{const std\+::map$<$ std\+::string, std\+::string $>$ \&}]{database,  }\item[{\mbox{\hyperlink{classLogger}{Logger}} $\ast$}]{logger }\end{DoxyParamCaption})}
+
+
+
+Установка соединения с клиентами 
+
+Производит соединение с сервером и авторизует пользователя. 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em port} & Номер порта для соединения. \\
+\hline
+\mbox{\texttt{ in}}  & {\em database} & Контейнер с базой данных пользователей. \\
+\hline
+\mbox{\texttt{ in}}  & {\em logger} & Указатель на объект \mbox{\hyperlink{classLogger}{Logger}} для записи событий. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+int Код результата операции. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCommunicator_a548365290310dc23b7cfb6b3f335942c}\label{classCommunicator_a548365290310dc23b7cfb6b3f335942c}} 
+\index{Communicator@{Communicator}!generateSalt@{generateSalt}}
+\index{generateSalt@{generateSalt}!Communicator@{Communicator}}
+\doxysubsubsection{\texorpdfstring{generateSalt()}{generateSalt()}}
+{\footnotesize\ttfamily std\+::string Communicator\+::generate\+Salt (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Генерация соли 
+
+Генерирует соль для безопасного хранения паролей. \begin{DoxyReturn}{Возвращает}
+std\+::string Сгенерированная соль. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCommunicator_a220795798dfaabc657640aff10c2af2a}\label{classCommunicator_a220795798dfaabc657640aff10c2af2a}} 
+\index{Communicator@{Communicator}!MD5@{MD5}}
+\index{MD5@{MD5}!Communicator@{Communicator}}
+\doxysubsubsection{\texorpdfstring{MD5()}{MD5()}}
+{\footnotesize\ttfamily std\+::string Communicator\+::\+MD5 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{input\+String }\end{DoxyParamCaption})}
+
+
+
+Вычисление MD5 хеша 
+
+Производит вычисление MD5 хеша для заданной строки. 
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em input\+String} & Входная строка для хэширования. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+std\+::string Результат хэширования. 
+\end{DoxyReturn}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{communicator_8h}{communicator.\+h}}\item 
+communicator.\+cpp\end{DoxyCompactItemize}

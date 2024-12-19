@@ -1,0 +1,125 @@
+\hypertarget{classLogger}{}\doxysection{Класс Logger}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+Класс для работы с журналом логов  
+
+
+
+
+{\ttfamily \#include $<$logger.\+h$>$}
+
+\doxysubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_abc41bfb031d896170c7675fa96a6b30c}{Logger}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classLogger_a9c5e75850db50c2698f7872e5910c567}{Logger}} (const std\+::string \&path)
+\begin{DoxyCompactList}\small\item\em Конструктор с указанием пути \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLogger_a841b0ee5b978d4b6c0635b6f642cea14}{set\+Path}} (const std\+::string \&path\+File)
+\begin{DoxyCompactList}\small\item\em Установка пути к файлу лога \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classLogger_a8fa36135adbee4c616de8ec4e0876be0}{write\+Log}} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Запись события в журнал \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classLogger_a91954138213183e23e391e82b8e87acb}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Получение пути к файлу лога \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для работы с журналом логов 
+
+Позволяет записывать события в лог-\/файл. 
+
+\doxysubsection{Конструктор(ы)}
+\mbox{\Hypertarget{classLogger_abc41bfb031d896170c7675fa96a6b30c}\label{classLogger_abc41bfb031d896170c7675fa96a6b30c}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Конструктор по умолчанию 
+
+Инициализирует объект \mbox{\hyperlink{classLogger}{Logger}} с умолчательным путем. \mbox{\Hypertarget{classLogger_a9c5e75850db50c2698f7872e5910c567}\label{classLogger_a9c5e75850db50c2698f7872e5910c567}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Конструктор с указанием пути 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em path} & Путь к файлу лога. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Методы}
+\mbox{\Hypertarget{classLogger_a91954138213183e23e391e82b8e87acb}\label{classLogger_a91954138213183e23e391e82b8e87acb}} 
+\index{Logger@{Logger}!getPath@{getPath}}
+\index{getPath@{getPath}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily std\+::string Logger\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Получение пути к файлу лога 
+
+\begin{DoxyReturn}{Возвращает}
+std\+::string Путь к файлу лога. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLogger_a841b0ee5b978d4b6c0635b6f642cea14}\label{classLogger_a841b0ee5b978d4b6c0635b6f642cea14}} 
+\index{Logger@{Logger}!setPath@{setPath}}
+\index{setPath@{setPath}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily int Logger\+::set\+Path (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{path\+File }\end{DoxyParamCaption})}
+
+
+
+Установка пути к файлу лога 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em path\+File} & Путь к файлу лога. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+int Код результата операции. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classCritError}{Crit\+Error}}} & Если файл не открывается. \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classLogger_a8fa36135adbee4c616de8ec4e0876be0}\label{classLogger_a8fa36135adbee4c616de8ec4e0876be0}} 
+\index{Logger@{Logger}!writeLog@{writeLog}}
+\index{writeLog@{writeLog}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{writeLog()}{writeLog()}}
+{\footnotesize\ttfamily int Logger\+::write\+Log (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})}
+
+
+
+Запись события в журнал 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\mbox{\texttt{ in}}  & {\em message} & Сообщение для записи в лог. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+int Код результата операции. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Исключения}
+{\em \mbox{\hyperlink{classCritError}{Crit\+Error}}} & Если файл не открывается на запись. \\
+\hline
+\end{DoxyExceptions}
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{logger_8h}{logger.\+h}}\item 
+logger.\+cpp\end{DoxyCompactItemize}

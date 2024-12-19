@@ -80,3 +80,71 @@
 2024-12-18 20:18:25 Good_WriteLog
 2024-12-18 20:21:16 Good_WriteLog
 2024-12-18 20:21:39 Good_WriteLog
+2024-12-19 20:14:20 NO CRITICAL ERROR Unknown ID in thread: 0
+2024-12-19 22:47:16 Socket binding error: CRITICAL ERROR
+2024-12-19 22:47:58 Socket binding error: CRITICAL ERROR
+2024-12-19 22:50:33 Received data has incorrect size: NO CRITICAL ERROR in thread: 140246136252096
+2024-12-19 22:54:55 Received data has incorrect size: NO CRITICAL ERROR in thread: 140695885178560
+2024-12-19 23:08:48 Received data has incorrect size in thread: 140255588116160 at stage: Vector data retrieval
+2024-12-19 23:09:05 Socket binding error: CRITICAL ERROR
+2024-12-19 23:09:11 Socket binding error: CRITICAL ERROR
+2024-12-19 23:09:20 Socket binding error: CRITICAL ERROR
+2024-12-19 23:19:18 Received data has incorrect size in thread: 140399033312960 at stage: Vector data retrieval
+2024-12-19 23:21:32 Authorization error in thread: 140399033312960 at stage: Hash verification
+2024-12-19 23:21:41 Socket binding error: CRITICAL ERROR
+2024-12-19 23:23:14 Authorization error in thread: 140601945351872 at stage: Hash verification
+2024-12-19 23:24:13 Socket binding error: CRITICAL ERROR
+2024-12-19 23:24:30 Unknown ID in thread: 140337557399232 at stage: Client ID check
+2024-12-19 23:25:12 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:18 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:18 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:19 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:19 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:20 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:20 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:21 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:21 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:21 Socket binding error: CRITICAL ERROR
+2024-12-19 23:25:23 Socket binding error: CRITICAL ERROR
+2024-12-20 00:08:52 Authorization error in thread: 140378510583488 at stage: Hash verification
+2024-12-20 00:09:48 Socket binding error: CRITICAL ERROR
+2024-12-20 00:10:03 Received data has incorrect size in thread: 139635766453952 at stage: Vector data retrieval
+2024-12-20 00:11:43 Invalid port: 10 Critical error
+2024-12-20 00:13:30 Error connecting to the database: Invalid [login:password] format: CRITICAL ERROR
+2024-12-20 00:14:08 Error connecting to the database: Database is empty: CRITICAL ERROR
+2024-12-20 00:14:54 Error connecting to the database: Database has wrong extension: CRITICAL ERROR
+2024-12-20 00:15:04 Unknown ID in thread: 140619414628032 at stage: Client ID check
+2024-12-20 00:18:44 Error connecting to the database: Database has wrong extension: CRITICAL ERROR
+2024-12-20 00:19:20 Invalid port: 10 Critical error
+2024-12-20 00:33:13 Unknown ID in thread: 140578459346624 at stage: Client ID check
+2024-12-20 00:40:50 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:55 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:56 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:57 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:57 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:58 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:59 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:59 Socket binding error: CRITICAL ERROR
+2024-12-20 00:40:59 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:00 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:00 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:00 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:00 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:01 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:01 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:01 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:02 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:02 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:02 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:03 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:03 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:03 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:04 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:04 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:04 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:04 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:04 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:04 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:05 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:05 Socket binding error: CRITICAL ERROR
+2024-12-20 00:41:05 Socket binding error: CRITICAL ERROR

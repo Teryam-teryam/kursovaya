@@ -1,0 +1,24 @@
+\hypertarget{communicator_8h_source}{}\doxysection{communicator.\+h}
+\mbox{\hyperlink{communicator_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <thread>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{logger_8h}{logger.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{error_8h}{error.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#define CRYPTOPP\_ENABLE\_NAMESPACE\_WEAK 1}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{22 \textcolor{keyword}{class }\mbox{\hyperlink{classCommunicator}{Communicator}}}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \textcolor{keywordtype}{int} \mbox{\hyperlink{classCommunicator_a94b5c463fcce469431b09319547720e5}{connection}}(\textcolor{keywordtype}{int} port, \textcolor{keyword}{const} std::map<std::string, std::string>\& database, \mbox{\hyperlink{classLogger}{Logger}}* logger);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{43     std::string \mbox{\hyperlink{classCommunicator_a220795798dfaabc657640aff10c2af2a}{MD5}}(\textcolor{keyword}{const} std::string\& inputString);}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{51     std::string \mbox{\hyperlink{classCommunicator_a548365290310dc23b7cfb6b3f335942c}{generateSalt}}();}
+\DoxyCodeLine{52 \};}
+
+\end{DoxyCode}

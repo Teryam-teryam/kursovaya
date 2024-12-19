@@ -278,7 +278,7 @@ SUITE(CommunicatorTests)
     {
         Communicator communicator;
         std::string salt = communicator.generateSalt();
-        CHECK(salt.length() >= 16);
+        CHECK(salt.length() == 16);
     }
     TEST(Alphabet_generateSalt)
     {
